@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/Agendog.app</string>
+		<key>CFBundleIdentifier</key>
+		<string>com.ionicframework.todo610847</string>
+		<key>CFBundleShortVersionString</key>
+		<string>0.0.1</string>
+		<key>CFBundleVersion</key>
+		<string>0.0.1</string>
+		<key>SigningIdentity</key>
+		<string>iPhone Developer: Antonio Murillo Fuentes (NP86EC2H2B)</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2017-02-06T19:05:52Z</date>
+	<key>Name</key>
+	<string>Agendog</string>
+	<key>SchemeName</key>
+	<string>Agendog</string>
+</dict>
+</plist>

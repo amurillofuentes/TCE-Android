@@ -1,0 +1,37 @@
+<ion-view title="Añadir actuación">
+    
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-checkmark-round" ng-click="addActuacion()">
+        </button>
+    </ion-nav-buttons>
+    
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddNameAct()">
+                Nombre de la actuacion
+                <span class="item-note">{{interfaz.nameAct}}</span>
+            </ion-item>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddDateAct()">
+                Fecha de actuacion
+                <span class="item-note">
+                    {{interfaz.dateAct | date:'dd/MM/yyyy'}}
+                    </span>
+            </ion-item>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddMultiplePet()">
+                Para qué mascota
+                <span class="item-note">
+                    <div ng-repeat="f in mascotasToShow">
+                            <div ng-show="f.selected">
+                                {{f.subId}}
+                                </div>                       
+                    </div>
+                </span>
+            </ion-item>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddAlarm()">
+                Definir aviso
+                <span class="item-note">{{interfaz.alarmName}}</span>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

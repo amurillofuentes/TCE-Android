@@ -1,0 +1,45 @@
+<ion-view title="Añadir mascotas">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-checkmark-round" ng-click="finishPet()" ng-hide="interfaz.ocultarFinish">
+        </button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div>
+            <p>
+                Introduce los datos de tu mascota. Presiona "añadir otra" para añadir más de una y presiona "Terminar" cuando hayas acabado</p>
+        </div>
+        <div class="spacer" style="width: 285px; height: 18px;"></div>
+
+        <ion-list>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddName()">
+                Nombre de la mascota
+                <span class="item-note">{{interfaz.namePet}}</span>
+            </ion-item>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddDate()">
+                Fecha de Nacimiento
+                <span class="item-note">
+                    {{interfaz.datePet | date:'dd/MM/yyyy'}}
+                     </span>
+            </ion-item>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddType()">
+                Tipo de mascota
+                <span class="item-note">{{interfaz.typePet}}</span>
+            </ion-item>
+        </ion-list>
+
+        <div class="item item-thumbnail-left" ng-controller="ImagePickerController">
+
+
+        <img ng-src="{{urlForImage(interfaz.imagePet)}}" style="width:100%; height: auto;" ng-if="interfaz.imagePet.indexOf('/')<0"/>
+            <img ng-src="{{interfaz.imagePet}}" style="width:100%; height: auto;" ng-if="interfaz.imagePet.indexOf('/')>-1"/>
+             <button class="button button-stable button-block " ng-click="addImage(1)">Galeria</button>
+            <button class="button button-stable button-block " ng-click="addImage(0)">Camara</button>
+        </div>
+        
+
+
+         <div class="button-bar">
+            <button class="button button-stable button-block " ng-click="addPet()">AÑADIR</button>
+        </div>
+    </ion-content>
+</ion-view>

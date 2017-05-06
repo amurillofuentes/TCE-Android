@@ -1,0 +1,54 @@
+<ion-view title="Detalle de actuación">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-checkmark-round" ng-click="modifyTreatment()">
+        </button>
+
+    </ion-nav-buttons>
+
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddNameAct()">
+                Nombre de la actuacion
+                <span class="item-note">{{actuacion.name}}</span>
+            </ion-item>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddDateAct()">
+                Fecha de actuacion
+                <span class="item-note">{{actuacion.date | date:'dd/MM/yyyy'}}</span>
+            </ion-item>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddMultiplePet()">
+                Para qué mascota
+                <span class="item-note">
+                    <span class="item-note">
+                    <div ng-repeat="f in mascotasToShow">
+                            <div ng-show="f.selected">
+                                {{f.subId}}
+                                </div>                       
+                    </div>
+                </span>
+                </span>
+            </ion-item>
+            <ion-item ng-class="item-icon-left" ng-click="showPopupAddAlarm()">
+                Definir aviso
+                <span class="item-note">{{actuacion.nameAlarm}}</span>
+            </ion-item>
+        </ion-list>
+        <div class="spacer" style="width: 285px; height: 52px;"></div>
+
+<div ng-switch="actuacion.url">
+    <div ng-switch-when="http://tecuroencasa.com/hidatidosis/"/>
+        <div><button class="button button-stable button-block icon-left ion-checkmark-round button-full" ng-click="goToInfo()">¿Sabes que es desparasitar?</button></div>
+    </div>
+      <div ng-switch-when='http://tecuroencasa.com/promocion-para-la-prevencion-de-la-filiariosis-canina/'>
+        <div><button class="button button-stable button-block icon-left ion-checkmark-round button-full" ng-click="goToInfo()">¿Sabes que es la filiariosis?</button></div>
+    </div>
+     <div ng-switch-when='http://tecuroencasa.com/la-leishmaniosis-canina/'>
+        <div><button class="button button-stable button-block icon-left ion-checkmark-round button-full" ng-click="goToInfo()">¿Sabes que es la leishmania?</button></div>
+    </div>
+     <div ng-switch-when='http://tecuroencasa.com/la-leucemia-felina/'>
+        <div><button class="button button-stable button-block icon-left ion-checkmark-round button-full" ng-click="goToInfo()">¿Sabes que es la Leucemia felina?</button></div>
+    </div>
+</div>
+
+        <button class="button button-stable button-block icon-left ion-checkmark-round button-full" ng-click="solicitarConsulta()">SOLICITAR CITA A DOMICILIO</button>
+    </ion-content>
+</ion-view>

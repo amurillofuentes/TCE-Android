@@ -1,0 +1,36 @@
+<ion-view title="Mis mascotas">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon ion-plus-round" ng-click="addPet()">
+        </button>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div class="spacer" style="width: 285px; height: 9px;"></div>
+        <h4>Listado de mascotas</h4>
+        <div class="spacer" style="width: 285px; height: 3px;"></div>
+        <div id="showHayMascotas" ng-show="hayMascotaFunct()">
+            <ion-list>
+                <ion-list ng-controller="myPetsCtrl" show-delete="shouldShowDelete" show-reorder="shouldShowReorder" can-swipe="listCanSwipe">
+                    <ion-card>
+                        <ion-item class="item-thumbnail-left" ng-repeat="mascota in service.mascotas track by $index" ng-click="showDetailPet(mascota)">    
+
+<img ng-src="{{urlForImage(mascota.image)}}" style="width:100%; height: auto;" ng-if="mascota.image.indexOf('/')<0"/>
+<img ng-src="{{mascota.image}}" style="width:100%; height: auto;" ng-if="mascota.image.indexOf('/')>-1"/>
+                        <h2>{{mascota.name}}</h2>
+                            <p>{{mascota.date | date:'dd/MM/yyyy HH:mm'}}</p>
+                            <ion-option-button class="button-positive" ng-click="borrarMascota(mascota)">
+                                Borrar
+                             </ion-option-button>
+                        </ion-item>
+                    </ion-card>
+                </ion-list>
+            </ion-list>
+        </div>
+
+        <div id="showNoHayMascotas" ng-hide="hayMascotaFunct()">
+            <h4><p><center>No se ha encontrado ninguna mascota en el sistema. Deberías añadir al menos una a la app.</center></p></h4>
+            <div class="button-bar">
+                <button class="button button-stable button-block " ng-click="addPet()">AÑADIR MASCOTA</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
